@@ -1,0 +1,31 @@
+html {
+  background-color: #eeeeee;
+}
+
+body {
+  width: 300px;
+  margin: 1em;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#reset {
+  background-color: #71a8ef;
+  border: none;
+  margin: 1em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  width: 40%;
+  color: #545454;
+  transition: color 0.3s;
+  transition: background-color 0.3s;
+}
+
+#reset:hover {
+  background-color: #227bef;
+  color: #ffffff;
+}
