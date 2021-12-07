@@ -1,19 +1,15 @@
+// on the install of the extension run this code
 chrome.runtime.onInstalled.addListener(details => {
-  chrome.storage.sync.set({ "floodTime": (15 * 60000) });
+  // set the initial flood time
+  chrome.storage.sync.set({ "floodTime": (1 * 60) });
 
+  // create a simple clock to keep track of the total time and the elapsed time
+  // in seconds
   const clock = {
-    startValue: 15 * 60000,
-    started: -1,
-    elapsed: 0
+    startValue: 60,
+    elapsed: 0,
   };
 
+  // save the clock
   chrome.storage.sync.set({ "clock": clock  });
 });
-
-chrome.tabs.onActivated.addListener(async (activeInfo) => {
-  chrome.tabs.query({ active: true, lastFocusedWindow: true }, ([tab]) => {
-    const regex = new RegExp('facebook');
-
-    if (regex.test(tab.url)) {}
-  });
-})
