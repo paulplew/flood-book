@@ -4,7 +4,7 @@
     "version": "0.0.0.1",
     "manifest_version": 3,
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "/service-worker/background.js"
     },
     "permissions": [
         "storage"
@@ -15,10 +15,10 @@
                 "*://*.facebook.com/*"
             ],
             "js": [
-                "inject.js"
+                "/content-scripts/inject.js"
             ],
             "css": [
-                "waves.css"
+                "content-scripts/waves.css"
             ]
         }
     ],
