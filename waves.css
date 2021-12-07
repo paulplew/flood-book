@@ -1,20 +1,30 @@
 #ocean {
-  width: 100%;
+  width: 100vw;
   position: sticky;
   height: 0px;
   left: 0px;
   z-index: 999;
   transition: top 3s;
+  pointer-events: none;
+}
+
+.wave-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 .wave {
   background: url('chrome-extension://__MSG_@@extension_id__/images/wave.svg') repeat-x;
   width: 6400px;
   height: 100vh;
+  pointer-events: inherit;
   overflow: hidden;
   animation: wave 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
-  opacity: 0.98;
   /* backdrop-filter: blur(10px); makes the page so slooooow*/
 }
 
@@ -22,7 +32,6 @@
   position: absolute;
   top: 20px;
   animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
-  opacity: 1;
 }
 
 @keyframes wave {

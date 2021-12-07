@@ -63,6 +63,7 @@ const flood = () => {
     span.id = 'countdown';
     span.style.backgroundColor = fbColor;
     span.style.color = "white";
+    span.style.fontSize = '1.75em';
     span.innerText = `${hours}:${minutes}:${seconds}`;
 
     // style the clock using a div
@@ -85,9 +86,14 @@ const flood = () => {
 
     const ocean = document.createElement('div');
     ocean.id = 'ocean';
+
+    const container = document.createElement('div');
+    container.className = 'wave-container';
+
     // this is what moves the waves 
     ocean.style.top = `${window.innerHeight}px`
-    ocean.append(wave1, wave2);
+    container.append(wave1, wave2);
+    ocean.appendChild(container);
 
 
     document.body.insertBefore(ocean, document.body.firstChild);
