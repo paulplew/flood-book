@@ -10,21 +10,11 @@ const resetClock = () => {
   });
 }
 
-const resetButton = document.getElementById('reset');
-resetButton.onclick = resetClock;
-
-// input for the amount of time allowed on the page
-const minutes = document.getElementById('time-input');
-
-// get the current allowed time and set it 
-chrome.storage.sync.get('floodTime', (result) => {
-  minutes.value = result.floodTime / 60;
-});
-
 // when the value is changed on the input update the stored value and the value
 // in the clock
 const handleTimeChange = (event) => {
   const floodSeconds = (event.target.value * 60);
+
   chrome.storage.sync.get('clock', (result) => {
     chrome.storage.sync.set({
       floodTime: floodSeconds,
@@ -36,4 +26,15 @@ const handleTimeChange = (event) => {
   });
 }
 
+// button to reset the countdown
+const resetButton = document.getElementById('reset');
+resetButton.onclick = resetClock;
+
+// input for the amount of time allowed on the page
+const minutes = document.getElementById('time-input');
 minutes.onchange = handleTimeChange;
+
+// get the current allowed time and set it 
+chrome.storage.sync.get('floodTime', (result) => {
+  minutes.value = result.floodTime / 60;
+});
